@@ -42,7 +42,7 @@ namespace MVVMStarter.Models.Base
             _collection = collection;
             _filterManager = new FilterManager<TDomainClass>();
 
-            Modified = true;
+            Modified = false;
 
             if (loadWhenCreated)
             {
