@@ -12,4 +12,4 @@ The main features of the framework are:
 * View configuration based on current view state
 * Load/save to files in JSON format
 
-Once you have downloaded the framework, you can add domain classes (say, a **Car** class, a **Student** class, etc.) to the framework, by following the steps in the MVVMStarter Guide (see the Documentation folder).
+Once you have downloaded the framework, you can add domain classes (say, a **Car** class, a **Student** class, etc.) to the framework, by following the steps in the **MVVMStarter Guide** (see the *Documentation* folder).
