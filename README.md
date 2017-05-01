@@ -8,7 +8,7 @@ The main features of the framework are:
 * CRUD functionality
 * Property-level validation
 * Property-dependency management (automatic updates of aggregated view properties)
-* Multiple-critera object filtering
+* Multiple-criteria object filtering
 * View configuration based on current view state
 * Load/save to files in JSON format
 
