@@ -15,7 +15,7 @@ namespace MVVMStarter.ViewModels.Domain._REPLACEME_
     public class MasterDetailsViewModel : MasterDetailsViewModelBase<_REPLACEME_Class>
     {
         public MasterDetailsViewModel()
-            : base(new ViewModelFactory(), Models.Domain._REPLACEME_.DomainModel.Instance)
+            : base(new ViewModelFactory(), Models.Domain._REPLACEME_.Catalog.Instance)
         {
             //// Use the below code as a template for setting up default
             //// behavior for your GUI controls
