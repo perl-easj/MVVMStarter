@@ -1,4 +1,6 @@
-﻿namespace MVVMStarter.Configuration.App
+﻿using MVVMStarter.Models.App;
+
+namespace MVVMStarter.Configuration.App
 {
     /// <summary>
     /// Contains application-wide configuration values
@@ -10,36 +12,40 @@
         /// Application-wide constants
         /// </summary>
         public const string ImageFilePrefix = "..\\..\\..\\Assets\\Domain\\";
+        public const string AppImageFilePrefix = "..\\..\\..\\Assets\\App\\";
         public const string ImageFilePostfix = ".jpg";
 
         public delegate void SourceDelegate();
-        public static SourceDelegate LoadModels = null;
-        public static SourceDelegate SaveModels = null;
+        public static SourceDelegate LoadCatalogs = null;
+        public static SourceDelegate SaveCatalogs = null;
 
         /// <summary>
-        /// Sets up all models to be included in Load and Save operations
+        /// Sets up all catalogs to be included in Load and Save operations
         /// </summary>
         public static void Setup()
         {
+            LoadCatalogs += ObjectProvider.ImageCatalog.Load;
+            SaveCatalogs += ObjectProvider.ImageCatalog.Save;
+
             // Add Load and Save methods for new domain classes here
-            // LoadModels += Models.Domain._REPLACEME_.Catalog.Instance.Load;
-            // SaveModels += Models.Domain._REPLACEME_.Catalog.Instance.Save;
+            // LoadCatalogs += ObjectProvider._REPLACEME_Catalog.Load;
+            // SaveCatalogs += ObjectProvider._REPLACEME_Catalog.Save;
         }
 
         /// <summary>
-        /// Loads all models from persistent storage.
+        /// Loads all catalogs from storage.
         /// </summary>
         public static void Load()
         {
-            LoadModels?.Invoke();
+            LoadCatalogs?.Invoke();
         }
 
         /// <summary>
-        /// Saves all models to persistent storage.
+        /// Saves all catalogs to storage.
         /// </summary>
         public static void Save()
         {
-            SaveModels?.Invoke();
+            SaveCatalogs?.Invoke();
         }
     }
 }

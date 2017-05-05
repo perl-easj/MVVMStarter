@@ -5,7 +5,7 @@ namespace MVVMStarter.Common
 {
     /// <summary>
     /// This class is the "standard" implementation of RelayCommand,
-    /// qwhich originates from an open-source MVVM project.
+    /// which originates from an open-source MVVM project (MVVMLight).
     /// </summary>
     public class RelayCommand : ICommand
     {

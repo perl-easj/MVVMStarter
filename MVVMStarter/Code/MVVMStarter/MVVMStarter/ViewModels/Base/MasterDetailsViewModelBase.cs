@@ -138,8 +138,11 @@ namespace MVVMStarter.ViewModels.Base
             if (catalog == null) throw new ArgumentNullException(nameof(catalog));
 
             _catalog = catalog;
-            _viewModelFactory = viewModelFactory;
+            _catalog.OnObjectCreated += AfterModelModified;
+            _catalog.OnObjectUpdated += AfterModelModified;
+            _catalog.OnObjectDeleted += AfterModelModified;
 
+            _viewModelFactory = viewModelFactory;
             _masterViewModel = _viewModelFactory.CreateMasterViewModel();
             _detailsViewModel = null; 
             _itemViewModelSelected = null;
@@ -228,30 +231,19 @@ namespace MVVMStarter.ViewModels.Base
         public ICommand SelectDeleteCommand
         {
             get { return _selectDeleteCommand; }
-        } 
+        }
         #endregion
 
-        #region After... methods for handlers
-        public virtual void AfterModelInsert(TDomainClass e)
-        {
-            AfterModelModified();
-            DetailsViewModel = _viewModelFactory.CreateDetailsViewModel(new TDomainClass());
-        }
-
-        public virtual void AfterModelDelete(int key)
-        {
-            AfterModelModified();
-        }
-
-        public virtual void AfterModelUpdate(TDomainClass e)
-        {
-            AfterModelModified();
-        }
-
-        private void AfterModelModified()
+        #region AfterModelModified code (called on Catalog change events)
+        private void AfterModelModified(object sender, EventArgs eventArgs)
         {
             ItemViewModelSelected = null;
             OnPropertyChanged(nameof(ItemViewModelCollection));
+
+            if (ViewState == ViewControlState.ViewState.Create)
+            {
+                DetailsViewModel = _viewModelFactory.CreateDetailsViewModel(new TDomainClass());
+            }
         }
         #endregion
 

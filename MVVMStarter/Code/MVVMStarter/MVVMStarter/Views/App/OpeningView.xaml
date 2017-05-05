@@ -7,10 +7,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock HorizontalAlignment="Left" Height="600" Margin="100,100,0,0" FontWeight="Bold" FontSize="144" VerticalAlignment="Top" Width="1000">
-            <Run Text="MVVM "/>
-            <LineBreak/>
-            <Run Text="Starter"/>
-        </TextBlock>
+        <Image Source="ms-appx:///Assets/App/Logo600x600.jpg"/>
     </Grid>
 </Page>

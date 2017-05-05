@@ -97,8 +97,16 @@
     </Compile>
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Configuration\App\AppConfig.cs" />
+    <Compile Include="Images\App\Catalog.cs" />
+    <Compile Include="Images\App\HardCodedObjects.cs" />
+    <Compile Include="Images\App\Image.cs" />
+    <Compile Include="Images\App\ImageViewModel.cs" />
     <Compile Include="Models\App\Filter.cs" />
     <Compile Include="Models\App\FilterManager.cs" />
+    <Compile Include="Models\App\ObjectProvider.cs" />
+    <Compile Include="Models\Base\HardCodedObjectsBase.cs" />
+    <None Include="Models\Domain\Template\HardCodedObjects.cs" />
+    <Compile Include="Persistency\Base\HardCodedSourceBase.cs" />
     <Compile Include="Validators\App\ValidationException.cs" />
     <Compile Include="Common\UserActionPresenter.cs" />
     <Compile Include="Controllers\Base\DeleteControllerBase.cs" />
@@ -107,6 +115,7 @@
     <Compile Include="Controllers\Base\UpdateControllerBase.cs" />
     <Compile Include="Validators\App\ValidationOutcome.cs" />
     <Compile Include="Validators\App\ValidationHandler.cs" />
+    <None Include="Validators\Domain\Template\Validator.cs" />
     <Compile Include="ViewModels\App\PropertyDependencyMap.cs" />
     <Compile Include="ViewModels\Base\ItemViewModelBase.cs" />
     <Compile Include="ViewModels\Base\MasterViewModelBase.cs" />
@@ -118,6 +127,9 @@
     <None Include="ViewModels\Domain\Template\DetailsViewModel.cs" />
     <None Include="ViewModels\Domain\Template\MasterDetailsViewModel.cs" />
     <None Include="ViewModels\Domain\Template\ViewModelFactory.cs" />
+    <Compile Include="Views\App\ImageView.xaml.cs">
+      <DependentUpon>ImageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\App\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -149,7 +161,30 @@
     <Content Include="Assets\App\Cloud.png" />
     <Content Include="Assets\App\CloudLoad.png" />
     <Content Include="Assets\App\CloudSave.png" />
+    <Content Include="Assets\App\Image.png" />
+    <Content Include="Assets\App\Load.png" />
+    <Content Include="Assets\App\Logo120x60.jpg" />
+    <Content Include="Assets\App\Logo600x600.jpg" />
+    <Content Include="Assets\App\NotSet.jpg" />
+    <Content Include="Assets\App\Save.png" />
+    <Content Include="Assets\BadgeLogo.scale-400.jpg" />
     <Content Include="Assets\Domain\Template\Template.jpg" />
+    <Content Include="Assets\Images\CarBlackSedan.jpg" />
+    <Content Include="Assets\Images\CarBlueCombi.jpg" />
+    <Content Include="Assets\Images\CarGreenCombi.jpg" />
+    <Content Include="Assets\Images\CarLightBlueCombi.jpg" />
+    <Content Include="Assets\Images\CarMagentaPickup.jpg" />
+    <Content Include="Assets\Images\CarPurpleSport.jpg" />
+    <Content Include="Assets\Images\CarRedSedan.jpg" />
+    <Content Include="Assets\Images\CarWhiteMini.jpg" />
+    <Content Include="Assets\Images\CarYellowSport.jpg" />
+    <Content Include="Assets\SplashScreen.scale-200.jpg" />
+    <Content Include="Assets\Square150x150Logo.scale-400.jpg" />
+    <Content Include="Assets\Square310x310Logo.scale-200.jpg" />
+    <Content Include="Assets\Square44x44Logo.scale-400.jpg" />
+    <Content Include="Assets\Square71x71Logo.scale-400.jpg" />
+    <Content Include="Assets\StoreLogo.scale-400.jpg" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -164,6 +199,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\App\ImageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\App\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -180,7 +219,6 @@
   <ItemGroup>
     <Folder Include="Controllers\Domain\" />
     <Folder Include="Validators\Base\" />
-    <Folder Include="Validators\Domain\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

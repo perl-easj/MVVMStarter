@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using MVVMStarter.ViewModels.App;
+using MVVMStarter.Models.App;
 using MVVMStarter.ViewModels.Base;
 using _REPLACEME_Class = MVVMStarter.Models.Domain._REPLACEME_._REPLACEME_;
 
@@ -15,21 +15,23 @@ namespace MVVMStarter.ViewModels.Domain._REPLACEME_
     public class MasterDetailsViewModel : MasterDetailsViewModelBase<_REPLACEME_Class>
     {
         public MasterDetailsViewModel()
-            : base(new ViewModelFactory(), Models.Domain._REPLACEME_.Catalog.Instance)
+            : base(new ViewModelFactory(), ObjectProvider._REPLACEME_Catalog)
         {
             //// Use the below code as a template for setting up default
-            //// behavior for your GUI controls
+            //// behavior for your GUI controls. The names used in the calls
+            //// of Add must match the names used in the view.xaml file for 
+            //// getting the Description, Visibility and Enabled state for each control
 
             //List<string> fixedProperties = new List<string>();
-            //// Add names of "fixed" (cannot be changed after creation) properties here
-            //fixedProperties.Add(nameof(_REPLACEME_Class.FixedPropertyA));
-            //fixedProperties.Add(nameof(_REPLACEME_Class.FixedPropertyB));
-            //fixedProperties.Add(nameof(_REPLACEME_Class.FixedPropertyC));
+            //// Add names of "fixed" (cannot be changed after creation) view properties here
+            //fixedProperties.Add("FixedPropertyA");
+            //fixedProperties.Add("FixedPropertyB");
+            //fixedProperties.Add("FixedPropertyC");
 
             //List<string> nonFixedKeyProperties = new List<string>();
-            //// Add names of "non-fixed" (can be changed after creation) properties here
-            //nonFixedKeyProperties.Add(nameof(_REPLACEME_Class.NonFixedPropertyA));
-            //nonFixedKeyProperties.Add(nameof(_REPLACEME_Class.NonFixedPropertyB));
+            //// Add names of "non-fixed" (can be changed after creation) view properties here
+            //nonFixedKeyProperties.Add("NonFixedPropertyD");
+            //nonFixedKeyProperties.Add("NonFixedPropertyE"));
 
             //StateManager.AddFixedPropertiesDefaultStates(fixedProperties);
             //StateManager.AddNonFixedPropertiesDefaultStates(nonFixedKeyProperties);

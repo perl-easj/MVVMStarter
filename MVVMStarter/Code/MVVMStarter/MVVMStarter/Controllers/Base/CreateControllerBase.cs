@@ -20,9 +20,7 @@ namespace MVVMStarter.Controllers.Base
         public override void Execute()
         {
             TDomainClass obj = (TDomainClass)MasterDetailsViewModel.DetailsViewModel.DomainObject.Clone();
-
             Catalog.Insert(obj);
-            MasterDetailsViewModel.AfterModelInsert(obj);
         }
 
         public override bool CanExecute()

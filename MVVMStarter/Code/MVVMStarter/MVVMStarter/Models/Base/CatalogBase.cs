@@ -17,9 +17,10 @@ namespace MVVMStarter.Models.Base
         private CollectionBase<TDomainClass> _collection;
         private SourceBase<TDomainClass> _source;
         private FilterManager<TDomainClass> _filterManager;
-        private bool _modified;
 
-        // private Dictionary<string, Filter<TDomainClass>> _filters;
+        public event EventHandler OnObjectCreated;
+        public event EventHandler OnObjectUpdated;
+        public event EventHandler OnObjectDeleted;
 
         /// <summary>
         /// Sets up the catalog as a paired collection and source
@@ -42,24 +43,36 @@ namespace MVVMStarter.Models.Base
             _collection = collection;
             _filterManager = new FilterManager<TDomainClass>();
 
-            Modified = false;
-
             if (loadWhenCreated)
             {
                 Load();
             }      
         }
 
+        /// <summary>
+        /// Adds a new filter to the catalog (filters are typically
+        /// defined in the domain-specific catalog classes).
+        /// </summary>
+        /// <param name="filter">Filter to add</param>
         public void AddFilter(Filter<TDomainClass> filter)
         {
             _filterManager.Add(filter);
         }
 
+        /// <summary>
+        /// Removes a filter from the catalog (remember that filters
+        /// can be turned off and on programmatically).
+        /// </summary>
+        /// <param name="filterID"></param>
         public void RemoveFilter(string filterID)
         {
             _filterManager.RemoveFilter(filterID);
         }
 
+        /// <summary>
+        /// Returns all domain objects that pass through
+        /// all currently active filters
+        /// </summary>
         public List<TDomainClass> FilteredAll
         {
             get { return _filterManager.FilterList(All); }
@@ -74,15 +87,6 @@ namespace MVVMStarter.Models.Base
         }
 
         /// <summary>
-        /// Returns whether the catalog has been changed
-        /// </summary>
-        public bool Modified
-        {
-            get { return _modified; }
-            set { _modified = value; }
-        }
-
-        /// <summary>
         /// Inserts a single domain object into the catalog
         /// </summary>
         /// <param name="obj">
@@ -91,7 +95,7 @@ namespace MVVMStarter.Models.Base
         public void Insert(TDomainClass obj)
         {
             _collection.Insert(obj);
-            Modified = true;
+            InvokeObjectCreated();
         }
 
         /// <summary>
@@ -100,13 +104,10 @@ namespace MVVMStarter.Models.Base
         /// <param name="key">
         /// Key for object to delete.
         /// </param>
-        /// <returns>
-        /// Returns true if an object was actually deleted.
-        /// </returns>
-        public bool Delete(int key)
+        public void Delete(int key)
         {
-            Modified = _collection.Delete(key);
-            return Modified;
+            _collection.Delete(key);
+            InvokeObjectDeleted();
         }
 
         /// <summary>
@@ -115,6 +116,7 @@ namespace MVVMStarter.Models.Base
         public void DeleteAll()
         {
             _collection.DeleteAll();
+            InvokeObjectDeleted();
         }
 
         /// <summary>
@@ -141,7 +143,7 @@ namespace MVVMStarter.Models.Base
             {
                 // ignored
             }
-            Modified = true;
+            InvokeObjectCreated();
         }
 
         /// <summary>
@@ -151,5 +153,9 @@ namespace MVVMStarter.Models.Base
         {
             _source.Save(_collection);
         }
+
+        private void InvokeObjectCreated() { OnObjectCreated?.Invoke(this, EventArgs.Empty); }
+        private void InvokeObjectUpdated() { OnObjectUpdated?.Invoke(this, EventArgs.Empty); }
+        private void InvokeObjectDeleted() { OnObjectDeleted?.Invoke(this, EventArgs.Empty); }
     }
 }

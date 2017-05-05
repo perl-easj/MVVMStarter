@@ -20,9 +20,7 @@ namespace MVVMStarter.Controllers.Base
         public override void Execute()
         {
             TDomainClass obj = MasterDetailsViewModel.ItemViewModelSelected.DomainObject;
-
             Catalog.Delete(obj.Key);
-            MasterDetailsViewModel.AfterModelDelete(obj.Key);
         }
 
         public override bool CanExecute()

@@ -14,6 +14,11 @@ namespace MVVMStarter.Models.Domain._REPLACEME_
 {
     public class _REPLACEME_ : DomainClassBase
     {
+        public _REPLACEME_()
+        {
+            SetDefaultValues();
+        }
+
         public override void SetDefaultValues()
         {
             // Set default values for properties here

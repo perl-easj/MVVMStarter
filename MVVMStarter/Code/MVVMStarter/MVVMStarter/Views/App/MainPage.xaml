@@ -13,24 +13,23 @@
         </Grid.RowDefinitions>
 
         <RelativePanel Grid.Row="0" >
-            <Button Name="HamburgerButton" 
+            <StackPanel Orientation="Horizontal">
+                <Button Name="HamburgerButton" 
                     RelativePanel.AlignLeftWithPanel="True"
                     FontFamily="Segoe MDL2 Assets"
-                    FontSize="36" 
+                    FontSize="40" 
                     Content="&#xE700;" 
                     Click="HamburgerButton_Click" />
-            <TextBlock Text ="MVVM Starter"
-                       RelativePanel.RightOf="HamburgerButton"
-                       FontSize="28"
-                       FontWeight="Bold"
-                       Margin="20,5,0,0"/>
+                <Image Width="100" Height="50" Margin="10,0,0,0"
+                       Source="ms-appx:///Assets/App/Logo120x60.jpg"/>
+            </StackPanel>
         </RelativePanel>
 
         <SplitView Grid.Row="1" 
                    Name="AppSplitView"
                    DisplayMode="CompactInline" 
                    OpenPaneLength="256"
-                   CompactPaneLength="56">
+                   CompactPaneLength="60">
             <SplitView.Pane>
                 <ListBox SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged">
                     <!--<ListBoxItem Name="_REPLACEME_View">
@@ -39,15 +38,21 @@
                             <TextBlock FontSize="24" Margin="20,0,0,0">_REPLACEME_s</TextBlock>
                         </StackPanel>
                     </ListBoxItem>-->
+                    <ListBoxItem Name="ImageView">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="40" Height="40" Source="ms-appx:///Assets/App/Image.png"/>
+                            <TextBlock FontSize="24" Margin="20,0,0,0">Images</TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
                     <ListBoxItem Name="Load">
                         <StackPanel Orientation="Horizontal">
-                            <Image Width="40" Height="40" Source="ms-appx:///Assets/App/CloudLoad.png"/>
+                            <Image Width="40" Height="40" Source="ms-appx:///Assets/App/Load.png"/>
                             <TextBlock FontSize="24" Margin="20,0,0,0">Load</TextBlock>
                         </StackPanel>
                     </ListBoxItem>
                     <ListBoxItem Name="Save">
                         <StackPanel Orientation="Horizontal">
-                            <Image Width="40" Height="40" Source="ms-appx:///Assets/App/CloudSave.png"/>
+                            <Image Width="40" Height="40" Source="ms-appx:///Assets/App/Save.png"/>
                             <TextBlock FontSize="24" Margin="20,0,0,0">Save</TextBlock>
                         </StackPanel>
                     </ListBoxItem>
