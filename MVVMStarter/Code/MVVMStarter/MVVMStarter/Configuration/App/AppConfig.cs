@@ -1,4 +1,5 @@
-﻿using MVVMStarter.Models.App;
+﻿using System.Reflection;
+using MVVMStarter.Models.App;
 
 namespace MVVMStarter.Configuration.App
 {
@@ -24,12 +25,10 @@ namespace MVVMStarter.Configuration.App
         /// </summary>
         public static void Setup()
         {
-            LoadCatalogs += ObjectProvider.ImageCatalog.Load;
-            SaveCatalogs += ObjectProvider.ImageCatalog.Save;
-
-            // Add Load and Save methods for new domain classes here
-            // LoadCatalogs += ObjectProvider._REPLACEME_Catalog.Load;
-            // SaveCatalogs += ObjectProvider._REPLACEME_Catalog.Save;
+            foreach (var prop in typeof(ObjectProvider).GetProperties())
+            {
+                prop.GetMethod.Invoke(null, null);
+            }
         }
 
         /// <summary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MVVMStarter.Configuration.App;
 using MVVMStarter.Models.App;
 using MVVMStarter.Persistency.Base;
 
@@ -30,10 +31,7 @@ namespace MVVMStarter.Models.Base
         /// </param>
         /// <param name="source"></param>
         /// Source for loading/saving domain objects
-        /// <param name="loadWhenCreated"></param>
-        public CatalogBase(CollectionBase<TDomainClass> collection,
-                           SourceBase<TDomainClass> source,
-                           bool loadWhenCreated = false)
+        public CatalogBase(CollectionBase<TDomainClass> collection, SourceBase<TDomainClass> source)
         {
             // Sanity checks, so we don't need null checks elsewhere
             if (collection == null) throw new ArgumentNullException(nameof(collection));
@@ -43,10 +41,8 @@ namespace MVVMStarter.Models.Base
             _collection = collection;
             _filterManager = new FilterManager<TDomainClass>();
 
-            if (loadWhenCreated)
-            {
-                Load();
-            }      
+            AppConfig.LoadCatalogs += Load;
+            AppConfig.SaveCatalogs += Save;
         }
 
         /// <summary>

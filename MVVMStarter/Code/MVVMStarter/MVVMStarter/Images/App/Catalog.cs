@@ -29,6 +29,11 @@ namespace MVVMStarter.Images.App
         }
         #endregion
 
+        /// <summary>
+        /// Retrieves all Image objects tagged with the given tag
+        /// </summary>
+        /// <param name="tag">Tag to filter on</param>
+        /// <returns></returns>
         public List<Image> AllWithTag(string tag)
         {
             var tagFilter = new Filter<Image>(tag, (obj) => obj.ContainsTag(tag));

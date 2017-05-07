@@ -1,6 +1,8 @@
 ﻿using MVVMStarter.Models.Base;
 
 /// <summary>
+/// NB: THIS CLASS IS OPTIONAL - ONLY DEFINE IT IF YOU NEED TO
+///     CREATE DOMAIN OBJECTS DIRECTLY IN THE SOURCE CODE
 /// TEMPLATE: You must 
 /// 1) Create a file called HardCodedObjects.cs in your domain folder (under Model/Domain)
 /// 2) Delete the entire content of the file
