@@ -46,6 +46,11 @@ namespace MVVMStarter.Views.App
                 AppFrame.Navigate(typeof(OpeningView));
                 UserActionPresenter.PresentMessageOkCancel("Are you sure you want to SAVE model data?", "Save", new RelayCommand(AppConfig.Save));
             }
+            if (nameOfSelection == "Quit")
+            {
+                AppFrame.Navigate(typeof(OpeningView));
+                UserActionPresenter.PresentMessageOkCancel("Are you sure you want to QUIT?", "QUIT", new RelayCommand(Application.Current.Exit));
+            }
         }
     }
 }

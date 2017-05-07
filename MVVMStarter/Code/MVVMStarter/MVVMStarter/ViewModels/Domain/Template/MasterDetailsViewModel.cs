@@ -31,7 +31,7 @@ namespace MVVMStarter.ViewModels.Domain._REPLACEME_
             //List<string> nonFixedKeyProperties = new List<string>();
             //// Add names of "non-fixed" (can be changed after creation) view properties here
             //nonFixedKeyProperties.Add("NonFixedPropertyD");
-            //nonFixedKeyProperties.Add("NonFixedPropertyE"));
+            //nonFixedKeyProperties.Add("NonFixedPropertyE");
 
             //StateManager.AddFixedPropertiesDefaultStates(fixedProperties);
             //StateManager.AddNonFixedPropertiesDefaultStates(nonFixedKeyProperties);

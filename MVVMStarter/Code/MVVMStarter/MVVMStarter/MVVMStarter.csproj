@@ -106,7 +106,6 @@
     <Compile Include="Models\App\ObjectProvider.cs" />
     <Compile Include="Models\Base\HardCodedObjectsBase.cs" />
     <None Include="Models\Domain\Template\HardCodedObjects.cs" />
-    <Compile Include="Models\Domain\Car\Car.cs" />
     <Compile Include="Persistency\Base\HardCodedSourceBase.cs" />
     <Compile Include="Validators\App\ValidationException.cs" />
     <Compile Include="Common\UserActionPresenter.cs" />
@@ -167,6 +166,7 @@
     <Content Include="Assets\App\Logo120x60.jpg" />
     <Content Include="Assets\App\Logo600x600.jpg" />
     <Content Include="Assets\App\NotSet.jpg" />
+    <Content Include="Assets\App\Quit.png" />
     <Content Include="Assets\App\Save.png" />
     <Content Include="Assets\BadgeLogo.scale-400.jpg" />
     <Content Include="Assets\Domain\Template\Template.jpg" />

@@ -1,5 +1,4 @@
-﻿using MVVMStarter.Configuration.App;
-using MVVMStarter.Models.Base;
+﻿using MVVMStarter.Models.Base;
 using MVVMStarter.Validators.App;
 
 /// <summary>

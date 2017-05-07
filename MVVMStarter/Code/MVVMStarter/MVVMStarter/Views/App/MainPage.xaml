@@ -56,6 +56,12 @@
                             <TextBlock FontSize="24" Margin="20,0,0,0">Save</TextBlock>
                         </StackPanel>
                     </ListBoxItem>
+                    <ListBoxItem Name="Quit">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="40" Height="40" Source="ms-appx:///Assets/App/Quit.png"/>
+                            <TextBlock FontSize="24" Margin="20,0,0,0">Quit</TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
                 </ListBox>
             </SplitView.Pane>
 

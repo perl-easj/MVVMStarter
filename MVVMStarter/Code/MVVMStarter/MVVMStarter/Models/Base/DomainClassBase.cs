@@ -6,6 +6,8 @@
     /// </summary>
     public abstract class DomainClassBase
     {
+        public const int NullKey = -1;
+
         /// <summary>
         /// Key property. NB: Keys are handled by the model base classes,
         /// and any key value set externally will be overwritten.

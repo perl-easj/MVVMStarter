@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MVVMStarter.Configuration.App;
 using MVVMStarter.Models.App;
 using MVVMStarter.Models.Base;
 using MVVMStarter.Persistency.Base;
@@ -10,6 +11,7 @@ namespace MVVMStarter.Images.App
     {
         #region Model Singleton implementation
         private static Catalog _instance = null;
+        private Image _notSetImage;
 
         public static Catalog Instance
         {
@@ -26,6 +28,8 @@ namespace MVVMStarter.Images.App
         /// </summary>
         private Catalog() : base(new CollectionBase<Image>(), new HardCodedSourceBase<Image>(new HardCodedObjects()))
         {
+            _notSetImage = new Image("Not set", AppConfig.AppImageFilePrefix + "NotSet.jpg");
+
         }
         #endregion
 
@@ -59,6 +63,11 @@ namespace MVVMStarter.Images.App
 
                 return allTags.Distinct().ToList();
             }
+        }
+
+        public Image ReadSafe(int key)
+        {
+            return (Read(key) == null) ? _notSetImage : Read(key);
         }
     }
 }
