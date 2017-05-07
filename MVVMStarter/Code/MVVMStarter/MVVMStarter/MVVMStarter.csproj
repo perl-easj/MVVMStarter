@@ -106,6 +106,7 @@
     <Compile Include="Models\App\ObjectProvider.cs" />
     <Compile Include="Models\Base\HardCodedObjectsBase.cs" />
     <None Include="Models\Domain\Template\HardCodedObjects.cs" />
+    <Compile Include="Models\Domain\Car\Car.cs" />
     <Compile Include="Persistency\Base\HardCodedSourceBase.cs" />
     <Compile Include="Validators\App\ValidationException.cs" />
     <Compile Include="Common\UserActionPresenter.cs" />
