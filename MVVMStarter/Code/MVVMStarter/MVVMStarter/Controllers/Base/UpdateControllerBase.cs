@@ -21,7 +21,7 @@ namespace MVVMStarter.Controllers.Base
         {
             TDomainClass obj = (TDomainClass)MasterDetailsViewModel.DetailsViewModel.DomainObject.Clone();
             Catalog.Delete(obj.Key);
-            Catalog.Insert(obj);
+            Catalog.Insert(obj, false);
         }
 
         public override bool CanExecute()

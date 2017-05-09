@@ -88,9 +88,12 @@ namespace MVVMStarter.Models.Base
         /// <param name="obj">
         /// Domain object to insert
         /// </param>
-        public void Insert(TDomainClass obj)
+        /// <param name="replaceKey">
+        /// Specifies if the Key value should be overwritten.
+        /// </param>
+        public void Insert(TDomainClass obj, bool replaceKey = true)
         {
-            _collection.Insert(obj);
+            _collection.Insert(obj, replaceKey);
             InvokeObjectCreated();
         }
 
