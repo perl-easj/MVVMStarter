@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using MVVMStarter.Common;
+using MVVMStarter.Images.App;
+using MVVMStarter.Models.App;
 using MVVMStarter.Models.Base;
 using MVVMStarter.ViewModels.App;
 
@@ -36,6 +39,18 @@ namespace MVVMStarter.ViewModels.Base
         {
             DomainObject = obj;
             PropertyDependencies = new PropertyDependencyManager();
+        }
+
+        /// <summary>
+        /// Returns an ObservableCollection of Image objects, specifically 
+        /// those Image objects tagged with the given tag
+        /// </summary>
+        /// <param name="tag">Tag to filter on</param>
+        protected ObservableCollection<Image> GetObservableImageCollection(string tag)
+        {
+            var collection = new ObservableCollection<Image>();
+            ObjectProvider.ImageCatalog.AllWithTag(tag).ForEach(collection.Add);
+            return collection;
         }
 
         /// <summary>
