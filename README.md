@@ -1,5 +1,5 @@
 # MVVMStarter
-The MVVMStarter Framework
+## The MVVMStarter Framework - overview
 
 This repository contains the **MVVMStarter Framework**, which is intended to be an MVVM-based C# Framework offering basic CRUD (Create, Read, Update, Delete) functionality for domain classes.
 
@@ -11,7 +11,7 @@ The main features of the framework are:
 * Multiple-criteria object filtering
 * View configuration based on current view state
 * Load/save to files in JSON format
-* Management of hard-coded image objects
+* Management of hard-coded image objects with tags
 
 Once you have downloaded the framework, you can add domain classes (say, a **Car** class, a **Student** class, etc.) to the framework, by following the steps in the **MVVMStarter Guide** (see the *Documentation* folder).
 
@@ -29,7 +29,7 @@ The default setting for the ListView control in the View is to use a DataTemplat
 
 *I just cloned a project from GitHub that runs fine on another PC, but I cannot compile it?*
 
-All of the binary files created when compiling a project are **not** saved to GitHub. This is perfectly fine, since they take up a lot of space, but it has the unfortunate consequence that the "target platform" is reset to **ARM**, The target platform should be changed to **x86**. Once you have changed it, rebuild the project.
+All of the binary files created when compiling a project are **not** saved to GitHub. This is perfectly fine, since they take up a lot of space, but it has the unfortunate consequence that the "target platform" is reset to **ARM**, The target platform should be changed to **x86**. Once you have changed it, rebuild the project. It seems that this problem does not occur when using Visual Studio 2017...
 
 
 
