@@ -1,5 +1,5 @@
-﻿using System;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
+using MVVMStarter.Configuration.App;
 using MVVMStarter.Models.Base;
 
 namespace MVVMStarter.ViewModels.Base
@@ -38,7 +38,7 @@ namespace MVVMStarter.ViewModels.Base
         /// </summary>
         public virtual string ImageSource
         {
-            get { return String.Empty; }
+            get { return AppConfig.NotSetImageFile; }
         }
 
         /// <summary>

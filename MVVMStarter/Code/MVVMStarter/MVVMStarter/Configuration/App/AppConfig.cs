@@ -15,6 +15,7 @@ namespace MVVMStarter.Configuration.App
         public const string ImageFilePrefix = "..\\..\\..\\Assets\\Domain\\";
         public const string AppImageFilePrefix = "..\\..\\..\\Assets\\App\\";
         public const string ImageFilePostfix = ".jpg";
+        public const string NotSetImageFile = "..\\..\\..\\Assets\\App\\NotSet.jpg";
 
         public delegate void SourceDelegate();
         public static SourceDelegate LoadCatalogs = null;
