@@ -25,8 +25,7 @@ namespace MVVMStarter.ViewModels.Base
         #region Instance fields
         private CatalogBase<TDomainClass> _catalog;
         private ViewModelFactoryBase<TDomainClass> _viewModelFactory;
-        
-        private MasterViewModelBase<TDomainClass> _masterViewModel;
+
         private DetailsViewModelBase<TDomainClass> _detailsViewModel;
         private ItemViewModelBase<TDomainClass> _itemViewModelSelected;
 
@@ -64,7 +63,7 @@ namespace MVVMStarter.ViewModels.Base
         #region Public properties for binding
         public virtual ObservableCollection<ItemViewModelBase<TDomainClass>> ItemViewModelCollection
         {
-            get { return _masterViewModel.CreateItemViewModelCollection(_catalog, _viewModelFactory); }
+            get { return _viewModelFactory.CreateItemViewModelCollection(_catalog, _viewModelFactory); }
         }
 
         public virtual ItemViewModelBase<TDomainClass> ItemViewModelSelected
@@ -100,15 +99,15 @@ namespace MVVMStarter.ViewModels.Base
             }
             else
             {
-                return (ViewState == ViewControlState.ViewState.Update
-                    ? _viewModelFactory.CreateDetailsViewModel((TDomainClass)ItemViewModelSelected.DomainObject.Clone())
-                    : _viewModelFactory.CreateDetailsViewModel(ItemViewModelSelected.DomainObject));
+                return ViewState == ViewControlState.ViewState.Update
+                    ? _viewModelFactory.CreateDetailsViewModelFromClone(ItemViewModelSelected.DomainObject)
+                    : _viewModelFactory.CreateDetailsViewModel(ItemViewModelSelected.DomainObject);
             }
         }
 
         public Dictionary<string, ViewControlState> ViewControlStates
         {
-            get  { return _stateManager.GetViewControlStates(ViewState); }
+            get { return _stateManager.GetViewControlStates(ViewState); }
         }
 
         public virtual bool ItemSelectorEnabled
@@ -143,8 +142,7 @@ namespace MVVMStarter.ViewModels.Base
             _catalog.OnObjectDeleted += AfterModelModified;
 
             _viewModelFactory = viewModelFactory;
-            _masterViewModel = _viewModelFactory.CreateMasterViewModel();
-            _detailsViewModel = null; 
+            _detailsViewModel = null;
             _itemViewModelSelected = null;
 
             _stateManager = new ViewControlStateManager();
@@ -175,11 +173,11 @@ namespace MVVMStarter.ViewModels.Base
         {
             if (ViewState == ViewControlState.ViewState.Create)
             {
-                DetailsViewModel = _viewModelFactory.CreateDetailsViewModel(new TDomainClass());
+                DetailsViewModel = _viewModelFactory.CreateDetailsViewModelFromNew();
             }
             if (ViewState == ViewControlState.ViewState.Update && ItemViewModelSelected != null)
             {
-                DetailsViewModel = _viewModelFactory.CreateDetailsViewModel((TDomainClass)ItemViewModelSelected.DomainObject.Clone());
+                DetailsViewModel = _viewModelFactory.CreateDetailsViewModelFromClone(ItemViewModelSelected.DomainObject);
             }
         }
 
@@ -242,7 +240,7 @@ namespace MVVMStarter.ViewModels.Base
 
             if (ViewState == ViewControlState.ViewState.Create)
             {
-                DetailsViewModel = _viewModelFactory.CreateDetailsViewModel(new TDomainClass());
+                DetailsViewModel = _viewModelFactory.CreateDetailsViewModelFromNew();
             }
         }
         #endregion

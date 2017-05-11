@@ -22,10 +22,5 @@ namespace MVVMStarter.ViewModels.Domain._REPLACEME_
         {
             return new ItemViewModel(obj);
         }
-
-        public override MasterViewModelBase<_REPLACEME_Class> CreateMasterViewModel()
-        {
-            return new MasterViewModel();
-        }
     }
 }

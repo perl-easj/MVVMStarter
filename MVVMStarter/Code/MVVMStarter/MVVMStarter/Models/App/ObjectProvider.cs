@@ -7,11 +7,6 @@ namespace MVVMStarter.Models.App
     /// </summary>
     public class ObjectProvider
     {
-        public static Images.App.Catalog ImageCatalog
-        {
-            get { return Images.App.Catalog.Instance; }
-        }
-
         //public static MVVMStarter.Models.Domain._REPLACEME_.Catalog _REPLACEME_Catalog
         //{
         //    get { return MVVMStarter.Models.Domain._REPLACEME_.Catalog.Instance; }

@@ -49,7 +49,7 @@ namespace MVVMStarter.ViewModels.Base
         protected ObservableCollection<Image> GetObservableImageCollection(string tag)
         {
             var collection = new ObservableCollection<Image>();
-            ObjectProvider.ImageCatalog.AllWithTag(tag).ForEach(collection.Add);
+            ImageManager.AllWithTag(tag).ForEach(collection.Add);
             return collection;
         }
 

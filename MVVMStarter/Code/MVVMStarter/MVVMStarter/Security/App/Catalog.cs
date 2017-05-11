@@ -1,9 +1,9 @@
 ﻿using MVVMStarter.Models.Base;
 using MVVMStarter.Persistency.Base;
 
-namespace MVVMStarter.Images.App
+namespace MVVMStarter.Security.App
 {
-    public class Catalog : CatalogBase<Image>
+    public class Catalog : CatalogBase<User>
     {
         #region Model Singleton implementation
         private static Catalog _instance = null;
@@ -21,7 +21,7 @@ namespace MVVMStarter.Images.App
         /// <summary>
         /// Use a hard-coded source
         /// </summary>
-        private Catalog() : base(new CollectionBase<Image>(), new HardCodedSourceBase<Image>(new HardCodedObjects()))
+        private Catalog() : base(new CollectionBase<User>(), new HardCodedSourceBase<User>(new HardCodedObjects()))
         {
         }
         #endregion

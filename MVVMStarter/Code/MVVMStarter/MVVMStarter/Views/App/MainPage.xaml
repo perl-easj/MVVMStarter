@@ -4,7 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:MVVMStarter.Security.App"
     mc:Ignorable="d">
+
+    <Page.DataContext>
+        <local:UserViewModel/>
+    </Page.DataContext>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -31,17 +36,11 @@
                    OpenPaneLength="256"
                    CompactPaneLength="60">
             <SplitView.Pane>
-                <ListBox SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged">
-                    <!--<ListBoxItem Name="_REPLACEME_View">
+                <ListBox Name="ViewSelection" SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged">
+                    <ListBoxItem Name="Login" Visibility="{Binding LoginVisible}">
                         <StackPanel Orientation="Horizontal">
-                            <Image Width="40" Height="40" Source="ms-appx:///Assets/Domain/_REPLACEME_/_REPLACEME_.jpg"/>
-                            <TextBlock FontSize="24" Margin="20,0,0,0">_REPLACEME_s</TextBlock>
-                        </StackPanel>
-                    </ListBoxItem>-->
-                    <ListBoxItem Name="ImageView">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Width="40" Height="40" Source="ms-appx:///Assets/App/Image.png"/>
-                            <TextBlock FontSize="24" Margin="20,0,0,0">Images</TextBlock>
+                            <Image Width="40" Height="40" Source="ms-appx:///Assets/App/Login.png"/>
+                            <TextBlock FontSize="24" Margin="20,0,0,0">Login</TextBlock>
                         </StackPanel>
                     </ListBoxItem>
                     <ListBoxItem Name="Load">
@@ -60,6 +59,18 @@
                         <StackPanel Orientation="Horizontal">
                             <Image Width="40" Height="40" Source="ms-appx:///Assets/App/Quit.png"/>
                             <TextBlock FontSize="24" Margin="20,0,0,0">Quit</TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <!--<ListBoxItem Name="_REPLACEME_View">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="40" Height="40" Source="ms-appx:///Assets/Domain/_REPLACEME_/_REPLACEME_.jpg"/>
+                            <TextBlock FontSize="24" Margin="20,0,0,0">_REPLACEME_s</TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>-->
+                    <ListBoxItem Name="ImageView">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="40" Height="40" Source="ms-appx:///Assets/App/Image.png"/>
+                            <TextBlock FontSize="24" Margin="20,0,0,0">Images</TextBlock>
                         </StackPanel>
                     </ListBoxItem>
                 </ListBox>

@@ -27,7 +27,7 @@ namespace MVVMStarter.Images.App
                 }
                 else
                 {
-                    Catalog.Instance.AllWithTag(Catalog.Instance.AllTags[_tagSelectedIndex - 1]).ForEach(collection.Add);
+                    ImageManager.AllWithTag(ImageManager.AllTags[_tagSelectedIndex - 1]).ForEach(collection.Add);
                 }
                 return collection;
             }
@@ -59,7 +59,7 @@ namespace MVVMStarter.Images.App
         {
             get
             {
-                List<string> allTags = new List<string>(Catalog.Instance.AllTags);
+                List<string> allTags = new List<string>(ImageManager.AllTags);
                 allTags.Insert(0, "(All)");
                 return allTags;
             }

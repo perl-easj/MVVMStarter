@@ -100,6 +100,7 @@
     <Compile Include="Images\App\Catalog.cs" />
     <Compile Include="Images\App\HardCodedObjects.cs" />
     <Compile Include="Images\App\Image.cs" />
+    <Compile Include="Images\App\ImageManager.cs" />
     <Compile Include="Images\App\ImageViewModel.cs" />
     <Compile Include="Models\App\Filter.cs" />
     <Compile Include="Models\App\FilterManager.cs" />
@@ -107,6 +108,12 @@
     <Compile Include="Models\Base\HardCodedObjectsBase.cs" />
     <None Include="Models\Domain\Template\HardCodedObjects.cs" />
     <Compile Include="Persistency\Base\HardCodedSourceBase.cs" />
+    <Compile Include="Security\App\AccessManager.cs" />
+    <Compile Include="Security\App\Catalog.cs" />
+    <Compile Include="Security\App\HardCodedObjects.cs" />
+    <Compile Include="Security\App\ItemAccess.cs" />
+    <Compile Include="Security\App\User.cs" />
+    <Compile Include="Security\App\UserViewModel.cs" />
     <Compile Include="Validators\App\ValidationException.cs" />
     <Compile Include="Common\UserActionPresenter.cs" />
     <Compile Include="Controllers\Base\DeleteControllerBase.cs" />
@@ -118,17 +125,18 @@
     <None Include="Validators\Domain\Template\Validator.cs" />
     <Compile Include="ViewModels\App\PropertyDependencyMap.cs" />
     <Compile Include="ViewModels\Base\ItemViewModelBase.cs" />
-    <Compile Include="ViewModels\Base\MasterViewModelBase.cs" />
     <Compile Include="ViewModels\App\ViewControlState.cs" />
     <Compile Include="ViewModels\App\ViewControlStateManager.cs" />
     <Compile Include="ViewModels\Base\ViewModelFactoryBase.cs" />
     <None Include="ViewModels\Domain\Template\ItemViewModel.cs" />
-    <None Include="ViewModels\Domain\Template\MasterViewModel.cs" />
     <None Include="ViewModels\Domain\Template\DetailsViewModel.cs" />
     <None Include="ViewModels\Domain\Template\MasterDetailsViewModel.cs" />
     <None Include="ViewModels\Domain\Template\ViewModelFactory.cs" />
     <Compile Include="Views\App\ImageView.xaml.cs">
       <DependentUpon>ImageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\App\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\App\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -163,6 +171,7 @@
     <Content Include="Assets\App\CloudSave.png" />
     <Content Include="Assets\App\Image.png" />
     <Content Include="Assets\App\Load.png" />
+    <Content Include="Assets\App\Login.png" />
     <Content Include="Assets\App\Logo120x60.jpg" />
     <Content Include="Assets\App\Logo600x600.jpg" />
     <Content Include="Assets\App\NotSet.jpg" />
@@ -206,6 +215,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Views\App\ImageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\App\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

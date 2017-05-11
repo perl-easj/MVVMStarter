@@ -2,6 +2,8 @@
 using Windows.UI.Xaml.Controls;
 using MVVMStarter.Common;
 using MVVMStarter.Configuration.App;
+using MVVMStarter.Security.App;
+
 #pragma warning disable CS4014
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -29,27 +31,43 @@ namespace MVVMStarter.Views.App
         {
             // if (_REPLACEME_View.IsSelected)
             // {
-            //     AppFrame.Navigate(typeof(Domain._REPLACEME_.View));
+            //     TryNavigate(typeof(Domain._REPLACEME_.View, "_REPLACEME_View"));
             // }
             if (ImageView.IsSelected)
             {
                 AppFrame.Navigate(typeof(App.ImageView));
             }
             string nameOfSelection = ((ListBoxItem)e.AddedItems[0]).Name;
+            if (nameOfSelection == "Login")
+            {
+                AppFrame.Navigate(typeof(App.LoginView));
+            }
             if (nameOfSelection == "Load")
             {
                 AppFrame.Navigate(typeof(OpeningView));
-                UserActionPresenter.PresentMessageOkCancel("Are you sure you want to LOAD model data?", "Load", new RelayCommand(AppConfig.Load));
+                UserActionPresenter.PresentMessageOkCancel("Are you sure you want to LOAD model data?", "LOAD", new RelayCommand(AppConfig.Load));
             }
             if (nameOfSelection == "Save")
             {
                 AppFrame.Navigate(typeof(OpeningView));
-                UserActionPresenter.PresentMessageOkCancel("Are you sure you want to SAVE model data?", "Save", new RelayCommand(AppConfig.Save));
+                UserActionPresenter.PresentMessageOkCancel("Are you sure you want to SAVE model data?", "SAVE", new RelayCommand(AppConfig.Save));
             }
             if (nameOfSelection == "Quit")
             {
                 AppFrame.Navigate(typeof(OpeningView));
                 UserActionPresenter.PresentMessageOkCancel("Are you sure you want to QUIT?", "QUIT", new RelayCommand(Application.Current.Exit));
+            }
+        }
+
+        private void TryNavigate(System.Type viewType, string viewName)
+        {
+            if (AccessManager.CanAccessItem(viewName))
+            {
+                AppFrame.Navigate(viewType);
+            }
+            else
+            {
+                UserActionPresenter.PresentMessageNoAction("You do not have access to the " + viewName, "OK");
             }
         }
     }

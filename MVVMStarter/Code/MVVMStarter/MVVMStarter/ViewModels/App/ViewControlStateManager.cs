@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MVVMStarter.Security.App;
 
 namespace MVVMStarter.ViewModels.App
 {
@@ -91,6 +92,17 @@ namespace MVVMStarter.ViewModels.App
             AddViewControlState(new ViewControlState("Create"));
             AddViewControlState(new ViewControlState("Update"));
             AddViewControlState(new ViewControlState("Delete"));
+        }
+
+        public void AddButtonStatesFromItemAccess(List<ItemAccess.AccessType> accessTypes)
+        {
+            bool fullAccess = accessTypes.Contains(ItemAccess.AccessType.Full) || accessTypes.Contains(ItemAccess.AccessType.Admin);
+            bool createAccess = fullAccess || accessTypes.Contains(ItemAccess.AccessType.Create);
+            bool updateAccess = fullAccess || accessTypes.Contains(ItemAccess.AccessType.Update);
+            bool deleteAccess = fullAccess || accessTypes.Contains(ItemAccess.AccessType.Delete);
+            AddViewControlState(new ViewControlState("Create", "Create", createAccess, createAccess));
+            AddViewControlState(new ViewControlState("Update", "Update", updateAccess, updateAccess));
+            AddViewControlState(new ViewControlState("Delete", "Delete", deleteAccess, deleteAccess));
         }
     }
 }
