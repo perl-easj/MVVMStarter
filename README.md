@@ -1,4 +1,4 @@
-# MVVMStarter
+# MVVMStarter (NB: Now deprecated - see MVVMStarterLibrary instead)
 ## The MVVMStarter Framework - overview
 
 This repository contains the **MVVMStarter Framework**, which is intended to be an MVVM-based C# Framework offering basic CRUD (Create, Read, Update, Delete) functionality for domain classes.
